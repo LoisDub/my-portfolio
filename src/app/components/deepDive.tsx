@@ -1,45 +1,106 @@
-// components/ProjectCard.tsx
-import { ExternalLink, Github, Code2 } from 'lucide-react';
+"use client";
 
-interface ProjectProps {
-  title: string;
-  description: string;
-  tags: string[];
-  metrics: string;
-  repoUrl: string;
-}
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Github, X } from "lucide-react";
+import type { Project } from "../content";
+import ProjectPreview from "./ProjectPreview";
 
-export default function ProjectCard({ title, description, tags, metrics, repoUrl }: ProjectProps) {
+export default function ProjectCard({ project }: { project: Project }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
   return (
-    <div className="group border border-white/10 bg-zinc-900/50 rounded-3xl p-8 hover:bg-zinc-800/50 transition-all">
-      <div className="flex justify-between items-start mb-6">
-        <div className="p-3 bg-emerald-500/10 rounded-2xl">
-          <Code2 className="text-emerald-400 w-6 h-6" />
-        </div>
-        <div className="flex gap-3">
-          <Github className="w-5 h-5 text-gray-500 hover:text-white cursor-pointer" />
-          <ExternalLink className="w-5 h-5 text-gray-500 hover:text-white cursor-pointer" />
-        </div>
-      </div>
-
-      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-400 mb-6 leading-relaxed">
-        {description}
-      </p>
-
-      <div className="flex flex-wrap gap-2 mb-8">
-        {tags.map(tag => (
-          <span key={tag} className="text-xs font-mono px-3 py-1 rounded-full border border-white/5 bg-white/5 text-gray-300">
-            {tag}
+    <article className={`project-card project-${project.preview}`}>
+      <button
+        type="button"
+        className="project-open"
+        onClick={() => {
+          dialog.current?.showModal();
+          setOpen(true);
+        }}
+        aria-label={`View details: ${project.title}`}
+      >
+        <ProjectPreview kind={project.preview} />
+        <span className="project-information">
+          <span className="project-label">
+            {project.number} / {project.label}
           </span>
-        ))}
-      </div>
-
-      <div className="pt-6 border-t border-white/5">
-        <p className="text-sm font-medium text-emerald-400">
-          <span className="text-gray-500 mr-2">Impact:</span> {metrics}
-        </p>
-      </div>
-    </div>
+          <span className="project-title-row">
+            <span className="project-title" role="heading" aria-level={3}>
+              {project.title}
+            </span>
+            <span className="project-arrow">
+              <ArrowUpRight size={22} />
+            </span>
+          </span>
+          <span className="project-description">{project.description}</span>
+          <span className="project-tags">
+            {project.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </span>
+        </span>
+      </button>
+      <dialog
+        ref={dialog}
+        className="project-dialog"
+        aria-labelledby={`${project.id}-title`}
+        onClose={() => setOpen(false)}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) dialog.current?.close();
+        }}
+      >
+        <div className="dialog-content">
+          <div className="dialog-header">
+            <span className="eyebrow">{project.label}</span>
+            <button
+              type="button"
+              className="dialog-close"
+              aria-label="Close project details"
+              onClick={() => dialog.current?.close()}
+              autoFocus
+            >
+              <X size={20} />
+            </button>
+          </div>
+          <ProjectPreview kind={project.preview} />
+          <div className="dialog-copy">
+            <h2 id={`${project.id}-title`}>{project.title}</h2>
+            <div className="project-tags">
+              {project.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+            <p className="dialog-overview">{project.overview}</p>
+            {project.details.map((detail) => (
+              <div className="project-detail" key={detail.title}>
+                <h3>{detail.title}</h3>
+                <p>{detail.description}</p>
+              </div>
+            ))}
+            {project.repo && (
+              <a
+                className="button button-primary"
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github size={17} /> Explore the source{" "}
+                <ArrowUpRight size={16} />
+              </a>
+            )}
+          </div>
+        </div>
+      </dialog>
+    </article>
   );
 }

@@ -1,65 +1,121 @@
-import Image from "next/image";
+import { ArrowUp, ArrowUpRight, Github, Mail } from "lucide-react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Work from "./components/Work";
+import Skills from "./components/skills";
+import { profile } from "./content";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main">
+        <Hero />
+        <Work />
+        <section id="about" className="about-section section-shell">
+          <div className="section-eyebrow">
+            <span>02 / A LITTLE ABOUT ME</span>
+            <span className="tiny-cross">+</span>
+          </div>
+          <div className="about-grid">
+            <div>
+              <h2>
+                Curiosity drives me.
+                <br />
+                <span className="serif-accent">Craft defines my work.</span>
+              </h2>
+              <div className="about-signature">
+                {profile.name}
+                <span>Full Stack Engineer</span>
+              </div>
+            </div>
+            <div className="about-copy">
+              <p>
+                I’m a full-stack engineer who enjoys connecting the dots between
+                thoughtful interfaces and the systems that power them.
+              </p>
+              <p>
+                My focus is TypeScript, Next.js, and distributed systems. I turn
+                complex logic into straightforward experiences, with equal
+                attention to how a product feels and how it works.
+              </p>
+              <p>
+                I like readable code, considered details, and learning something
+                new along the way.
+              </p>
+              <a
+                className="text-link"
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                A closer look at my code <ArrowUpRight size={16} />
+              </a>
+            </div>
+          </div>
+          <Skills />
+        </section>
+        <section id="contact" className="contact-section">
+          <div className="section-shell contact-inner">
+            <div className="section-eyebrow">
+              <span>03 / WHAT’S NEXT?</span>
+              <span className="availability">
+                <i /> OPEN TO OPPORTUNITIES
+              </span>
+            </div>
+            <div className="contact-grid">
+              <h2>
+                Good things start
+                <br />
+                with <span className="serif-accent">a conversation.</span>
+              </h2>
+              <div className="contact-copy">
+                <p>
+                  Have a project in mind, an interesting opportunity, or just
+                  want to say hello? I’d love to hear from you.
+                </p>
+                <a
+                  className="button button-light"
+                  href={`mailto:${profile.email}`}
+                >
+                  Let’s talk <ArrowUpRight size={18} />
+                </a>
+                <a className="email-link" href={`mailto:${profile.email}`}>
+                  {profile.email}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+      <footer className="footer section-shell">
+        <a className="wordmark" href="#home">
+          <span className="brand-mark" aria-hidden="true">
+            l<span>.</span>
+          </span>
+          {profile.name}
+        </a>
+        <p>Thoughtfully designed. Carefully built.</p>
+        <div className="footer-links">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LoisDub on GitHub"
+          >
+            <Github size={18} />
+          </a>
+          <a href={`mailto:${profile.email}`} aria-label="Email LoisDub">
+            <Mail size={18} />
+          </a>
+          <a href="#home" className="back-top" aria-label="Back to top">
+            <ArrowUp size={18} />
+          </a>
+        </div>
+      </footer>
+    </>
   );
 }

@@ -1,38 +1,162 @@
-import { motion } from 'framer-motion';
-import { Terminal, Github, Linkedin } from 'lucide-react';
+import {
+  ArrowDown,
+  ArrowDownRight,
+  ArrowUpRight,
+  Code2,
+  Github,
+} from "lucide-react";
+import { profile } from "../content";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen text-center px-6">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm mb-6"
-      >
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+    <section id="home" className="hero section-shell">
+      <div className="hero-topline">
+        <span className="eyebrow">
+          INDEPENDENT THINKING. INTENTIONAL BUILDING.
         </span>
-        Available for new opportunities
-      </motion.div>
-      
-      <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-        Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">scalable architectures</span><br /> for the modern web.
-      </h1>
-      
-      <p className="max-w-2xl text-gray-400 text-lg md:text-xl mb-10">
-        Full Stack Engineer specializing in TypeScript, Next.js, and Distributed Systems. 
-        I turn complex logic into seamless user experiences.
-      </p>
-
-      <div className="flex gap-4">
-        <button className="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all cursor-pointer">
-          View Projects
-        </button>
-        <div className="flex items-center gap-3 ml-4">
-          <Github className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer" />
-          <Linkedin className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer" />
+        <span className="availability">
+          <i /> AVAILABLE FOR OPPORTUNITIES
+        </span>
+      </div>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <p className="hero-intro">
+            Hi, I’m {profile.name} <span className="intro-line" />
+          </p>
+          <h1>
+            Thoughtful code.
+            <br />
+            Meaningful
+            <br />
+            <span className="serif-accent">experiences.</span>
+          </h1>
+          <p className="hero-description">
+            A full-stack engineer turning complex problems into
+            <br className="desktop-break" /> intuitive experiences. From the
+            first pixel to the last API.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-primary" href="#work">
+              Explore my work <ArrowDownRight size={18} />
+            </a>
+            <a
+              className="hero-github"
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={18} /> GitHub <ArrowUpRight size={14} />
+            </a>
+          </div>
         </div>
+        <div
+          className="hero-art"
+          aria-label="An illustration connecting thoughtful code to a finished interface"
+          role="img"
+        >
+          <div className="art-grid" />
+          <span className="art-corner art-corner-top">+</span>
+          <span className="art-corner art-corner-bottom">+</span>
+          <div className="art-orbit orbit-one" />
+          <div className="art-orbit orbit-two" />
+          <div className="art-window">
+            <div className="window-toolbar">
+              <span className="window-dots">
+                <i />
+                <i />
+                <i />
+              </span>
+              <span>something-good.tsx</span>
+              <Code2 size={13} />
+            </div>
+            <div className="code-lines">
+              <p>
+                <span>01</span>
+                <b>const</b> approach = {"{"}
+              </p>
+              <p>
+                <span>02</span> curiosity: <em>"always"</em>,
+              </p>
+              <p>
+                <span>03</span> details: <em>"matter"</em>,
+              </p>
+              <p>
+                <span>04</span> purpose: <em>"people"</em>
+              </p>
+              <p>
+                <span>05</span>
+                {"}"};
+              </p>
+            </div>
+            <div className="art-interface">
+              <div className="interface-head">
+                <span className="interface-logo">
+                  a<span>↗</span>
+                </span>
+                <div>
+                  <i />
+                  <i />
+                  <i />
+                </div>
+              </div>
+              <div className="interface-body">
+                <span className="interface-eyebrow">A LITTLE POSSIBILITY</span>
+                <strong>
+                  Ideas, brought
+                  <br />
+                  <em>to life.</em>
+                </strong>
+                <div className="interface-bottom">
+                  <span className="interface-button">
+                    Let’s make something <ArrowUpRight size={10} />
+                  </span>
+                  <div className="interface-sculpture">
+                    <i />
+                    <i />
+                    <i />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="art-note">
+            <span className="note-symbol">✳</span>
+            <div>
+              Built with purpose.
+              <br />
+              <span>Made for people.</span>
+            </div>
+          </div>
+          <span className="art-caption">
+            THE SWEET SPOT BETWEEN LOGIC & CREATIVITY
+          </span>
+        </div>
+      </div>
+      <div className="hero-bottom">
+        <p>GOOD EXPERIENCES START WITH A SOLID FOUNDATION</p>
+        <a href="#work" aria-label="Scroll to selected work">
+          <ArrowDown size={16} />
+        </a>
+      </div>
+      <div className="stack-strip" aria-label="Core technologies">
+        <span>
+          TypeScript<span className="stack-symbol">TS</span>
+        </span>
+        <span>
+          React<span className="stack-symbol react-symbol">✳</span>
+        </span>
+        <span>
+          Next.js<span className="stack-symbol">N↗</span>
+        </span>
+        <span>
+          Node.js<span className="stack-symbol">⬡</span>
+        </span>
+        <span>
+          PostgreSQL<span className="stack-symbol">▤</span>
+        </span>
+        <span>
+          Docker<span className="stack-symbol">▦</span>
+        </span>
       </div>
     </section>
   );

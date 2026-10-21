@@ -1,13 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Disable the experimental compiler that is causing the crash
-  experimental: {
-    reactCompiler: false,
-  },
-  // We'll keep these to ensure the build finishes even with minor warnings
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+import type { NextConfig } from "next";
+import path from "node:path";
+
+const nextConfig: NextConfig = {
+  outputFileTracingRoot: path.resolve(process.cwd()),
   eslint: {
     ignoreDuringBuilds: true,
   },

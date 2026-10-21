@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LoisDub — Portfolio
 
-## Getting Started
+A responsive engineering portfolio built with Next.js, React, TypeScript, and CSS. The design uses warm neutral backgrounds, forest-green accents, and editorial typography, with a project gallery, native project dialogs, technical skills, and direct contact links.
 
-First, run the development server:
+## Run locally
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. In Windows PowerShell with restricted script execution, use `npm.cmd` instead of `npm`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Update the content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app/content.ts`: profile name, email, GitHub URL, and project descriptions, tags, and repository links.
+- `src/app/page.tsx`: about text and contact section.
+- `src/app/components/skills.tsx`: technical toolkit.
+- `src/app/components/ProjectPreview.tsx`: CSS-based illustrative project previews.
+- `src/app/globals.css`: visual styles and responsive layouts.
 
-## Learn More
+The personal portfolio entry links to this repository. The dashboard and storefront entries are explicitly labeled interface concepts, not shipped products or client work. Replace these entries and their preview artwork when adding real projects.
 
-To learn more about Next.js, take a look at the following resources:
+## Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The production build includes TypeScript validation. Typography uses system fonts and requires no remote font downloads. Navigation, filtering, and dialogs support keyboard use; reduced-motion preferences disable smooth scrolling and transitions.

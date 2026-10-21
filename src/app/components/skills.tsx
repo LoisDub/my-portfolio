@@ -1,27 +1,49 @@
-const skills = {
-  Frontend: ["React 19", "Next.js", "Tailwind CSS", "Three.js"],
-  Backend: ["Node.js", "Go", "PostgreSQL", "Prisma/Drizzle"],
-  DevOps: ["Docker", "AWS (Lamba/S3)", "CI/CD Pipelines", "Edge Functions"]
-};
+import { Braces, Database, Layers3 } from "lucide-react";
+
+const skills = [
+  {
+    title: "The interface",
+    subtitle: "FRONTEND",
+    icon: Braces,
+    items: ["React 19", "Next.js", "TypeScript", "Tailwind CSS", "Three.js"],
+  },
+  {
+    title: "Behind the scenes",
+    subtitle: "BACKEND",
+    icon: Database,
+    items: ["Node.js", "Go", "PostgreSQL", "Prisma / Drizzle"],
+  },
+  {
+    title: "Built to keep going",
+    subtitle: "INFRASTRUCTURE",
+    icon: Layers3,
+    items: ["Docker", "AWS Lambda / S3", "CI/CD pipelines", "Edge functions"],
+  },
+];
 
 export default function Skills() {
   return (
-    <section className="py-24 px-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-12 text-white">Technical Arsenal</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {Object.entries(skills).map(([category, items]) => (
-          <div key={category} className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
-            <h3 className="text-emerald-400 font-medium mb-4">{category}</h3>
-            <div className="flex flex-wrap gap-2">
-              {items.map(skill => (
-                <span key={skill} className="px-3 py-1 bg-white/5 rounded-md text-sm text-gray-300 border border-white/5">
-                  {skill}
-                </span>
+    <div className="skills-section">
+      <div className="skills-heading">
+        <span className="eyebrow">MY EVERYDAY TOOLKIT</span>
+        <span>Different layers. The same attention to detail.</span>
+      </div>
+      <div className="skills-grid">
+        {skills.map(({ title, subtitle, icon: Icon, items }) => (
+          <div className="skill-column" key={title}>
+            <div className="skill-icon">
+              <Icon size={21} strokeWidth={1.5} />
+            </div>
+            <span className="skill-subtitle">{subtitle}</span>
+            <h3>{title}</h3>
+            <div className="skill-tags">
+              {items.map((item) => (
+                <span key={item}>{item}</span>
               ))}
             </div>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
