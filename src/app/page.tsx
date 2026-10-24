@@ -29,12 +29,12 @@ export default function Home() {
               </h2>
               <div className="about-signature">
                 {profile.name}
-                <span>Full Stack Engineer</span>
+                <span>Full Stack developer</span>
               </div>
             </div>
             <div className="about-copy">
               <p>
-                I’m a full-stack engineer who enjoys connecting the dots between
+                I’m a developer who enjoys connecting the dots between
                 thoughtful interfaces and the systems that power them.
               </p>
               <p>

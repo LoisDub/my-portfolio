@@ -16,10 +16,10 @@ Open http://localhost:3000. In Windows PowerShell with restricted script executi
 - `src/app/content.ts`: profile name, email, GitHub URL, and project descriptions, tags, and repository links.
 - `src/app/page.tsx`: about text and contact section.
 - `src/app/components/skills.tsx`: technical toolkit.
-- `src/app/components/ProjectPreview.tsx`: CSS-based illustrative project previews.
+- `src/app/components/ProjectPreview.tsx`: MP4 and animated GIF project previews.
 - `src/app/globals.css`: visual styles and responsive layouts.
 
-The personal portfolio entry links to this repository. The dashboard and storefront entries are explicitly labeled interface concepts, not shipped products or client work. Replace these entries and their preview artwork when adding real projects.
+The project gallery features Music Converter, Pakamew / Stray Feeder, Weather App, and Pokémon Almanac, with demos from `public/projects` and links to their GitHub repositories. Project details include video controls for MP4 demos and both camera views for Pakamew. Add or update demos through each project's `media` array in `src/app/content.ts`.
 
 ## Production
 

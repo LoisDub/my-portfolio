@@ -1,0 +1,16 @@
+ok i upoaded project videos to be placed on project section at public/projects
+Music converter:
+A PHP-based music converter web application featuring user authentication, file upload and organization, and dashboard functionality for managing media content.
+githublink:https://github.com/LoisDub/FinalProjectWithEarl
+
+Pakamew / Stray feeder:
+Full-stack shelter support platform with a React + TanStack Router web app, Node.js + Hono backend, typed APIs, Better Auth security, Prisma/PostgreSQL persistence, observability tooling, and livestream device integration.
+githublink:https://github.com/mmsu-pawpatrol/pakamew
+
+Weather APP:
+A Java desktop weather app that shows current conditions and a 5-day forecast using live API data, with a clean UI, interactive map markers, and reusable component-based architecture.
+githublink:https://github.com/daawaan4x/weather-app
+
+Pokemon Almanac:
+A simple Pokémon almanac built with HTML, CSS, and JavaScript where users can search by type and explore Pokémon details quickly.
+githublink: https://github.com/LoisDub/Pokemon_almanac

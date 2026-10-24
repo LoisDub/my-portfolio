@@ -1,8 +1,8 @@
+import Image from "next/image";
 import {
   ArrowDown,
   ArrowDownRight,
   ArrowUpRight,
-  Code2,
   Github,
 } from "lucide-react";
 import { profile } from "../content";
@@ -31,7 +31,7 @@ export default function Hero() {
             <span className="serif-accent">experiences.</span>
           </h1>
           <p className="hero-description">
-            A full-stack engineer turning complex problems into
+            A full-stack developer turning complex problems into
             <br className="desktop-break" /> intuitive experiences. From the
             first pixel to the last API.
           </p>
@@ -49,87 +49,15 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div
-          className="hero-art"
-          aria-label="An illustration connecting thoughtful code to a finished interface"
-          role="img"
-        >
-          <div className="art-grid" />
-          <span className="art-corner art-corner-top">+</span>
-          <span className="art-corner art-corner-bottom">+</span>
-          <div className="art-orbit orbit-one" />
-          <div className="art-orbit orbit-two" />
-          <div className="art-window">
-            <div className="window-toolbar">
-              <span className="window-dots">
-                <i />
-                <i />
-                <i />
-              </span>
-              <span>something-good.tsx</span>
-              <Code2 size={13} />
-            </div>
-            <div className="code-lines">
-              <p>
-                <span>01</span>
-                <b>const</b> approach = {"{"}
-              </p>
-              <p>
-                <span>02</span> curiosity: <em>"always"</em>,
-              </p>
-              <p>
-                <span>03</span> details: <em>"matter"</em>,
-              </p>
-              <p>
-                <span>04</span> purpose: <em>"people"</em>
-              </p>
-              <p>
-                <span>05</span>
-                {"}"};
-              </p>
-            </div>
-            <div className="art-interface">
-              <div className="interface-head">
-                <span className="interface-logo">
-                  a<span>↗</span>
-                </span>
-                <div>
-                  <i />
-                  <i />
-                  <i />
-                </div>
-              </div>
-              <div className="interface-body">
-                <span className="interface-eyebrow">A LITTLE POSSIBILITY</span>
-                <strong>
-                  Ideas, brought
-                  <br />
-                  <em>to life.</em>
-                </strong>
-                <div className="interface-bottom">
-                  <span className="interface-button">
-                    Let’s make something <ArrowUpRight size={10} />
-                  </span>
-                  <div className="interface-sculpture">
-                    <i />
-                    <i />
-                    <i />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="art-note">
-            <span className="note-symbol">✳</span>
-            <div>
-              Built with purpose.
-              <br />
-              <span>Made for people.</span>
-            </div>
-          </div>
-          <span className="art-caption">
-            THE SWEET SPOT BETWEEN LOGIC & CREATIVITY
-          </span>
+        <div className="hero-portrait">
+          <Image
+            src="/profile/730640427_2416642762164176_2218318876449714497_n.jpg"
+            alt={`Portrait of ${profile.name}`}
+            fill
+            priority
+            sizes="(max-width: 600px) 100vw, (max-width: 740px) 380px, (max-width: 1100px) 45vw, 408px"
+            className="hero-portrait-image"
+          />
         </div>
       </div>
       <div className="hero-bottom">

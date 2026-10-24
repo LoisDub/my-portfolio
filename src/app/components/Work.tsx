@@ -5,7 +5,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { profile, projects } from "../content";
 import ProjectCard from "./deepDive";
 
-const filters = ["All work", "Web development", "Interface concepts"] as const;
+const filters = ["All work", "Web development", "Desktop applications"] as const;
 
 export default function Work() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All work");
@@ -16,7 +16,7 @@ export default function Work() {
   return (
     <section id="work" className="work-section section-shell">
       <div className="section-eyebrow">
-        <span>01 / SELECTED WORK & EXPLORATIONS</span>
+        <span>01 / SELECTED PROJECTS</span>
         <span className="tiny-cross">+</span>
       </div>
       <div className="section-heading">
@@ -28,8 +28,8 @@ export default function Work() {
           </h2>
         </div>
         <p>
-          From working code to interface explorations.
-          <br />A look at how I approach the details.
+          Web platforms, desktop apps, and connected devices.
+          <br />Explore the demos and the code behind them.
         </p>
       </div>
       <div className="work-toolbar">

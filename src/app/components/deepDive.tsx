@@ -19,7 +19,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   }, [open]);
 
   return (
-    <article className={`project-card project-${project.preview}`}>
+    <article className={`project-card project-${project.id}`}>
       <button
         type="button"
         className="project-open"
@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         }}
         aria-label={`View details: ${project.title}`}
       >
-        <ProjectPreview kind={project.preview} />
+        <ProjectPreview media={project.media[0]} />
         <span className="project-information">
           <span className="project-label">
             {project.number} / {project.label}
@@ -72,7 +72,18 @@ export default function ProjectCard({ project }: { project: Project }) {
               <X size={20} />
             </button>
           </div>
-          <ProjectPreview kind={project.preview} />
+          {open && (
+            <div className="project-media-gallery">
+              {project.media.map((media) => (
+                <figure key={media.src}>
+                  <ProjectPreview media={media} interactive />
+                  {project.media.length > 1 && (
+                    <figcaption>{media.alt}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          )}
           <div className="dialog-copy">
             <h2 id={`${project.id}-title`}>{project.title}</h2>
             <div className="project-tags">

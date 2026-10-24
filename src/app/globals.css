@@ -292,6 +292,20 @@ svg {
   color: #626b5f;
   margin-left: 2px;
 }
+.hero-portrait {
+  position: relative;
+  width: min(100%, 408px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 50px #3d4d2910;
+}
+.hero-portrait-image {
+  object-fit: cover;
+}
 .hero-art {
   height: 408px;
   position: relative;
@@ -686,6 +700,37 @@ svg {
 }
 .project-open:hover .project-visual {
   box-shadow: 0 10px 30px #273a2410;
+}
+.project-card .project-visual.project-media {
+  height: auto;
+  aspect-ratio: 16 / 10;
+  background: #e9eee3;
+}
+.project-media-asset {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project-media video {
+  position: absolute;
+  inset: 0;
+}
+.project-media-gallery {
+  display: grid;
+  gap: 20px;
+}
+.project-media-gallery figure {
+  margin: 0;
+}
+.project-media-gallery figcaption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.project-dialog .project-visual.project-media {
+  height: auto;
 }
 .project-information {
   display: block;
@@ -2017,6 +2062,11 @@ svg {
   }
 }
 @media (max-width: 600px) {
+  .hero-portrait {
+    max-width: 340px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
   html {
     scroll-padding-top: 85px;
   }

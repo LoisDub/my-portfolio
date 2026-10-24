@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+// @ts-ignore Next.js handles this CSS side-effect import during builds.
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "LoisDub — Full Stack Engineer",
+  title: "LoisDub — Developer",
   description:
-    "Thoughtful code. Meaningful experiences. Explore LoisDub’s full-stack engineering work, interface explorations, and technical toolkit.",
+    "Thoughtful code. Meaningful experiences. Explore LoisDub’s developer work, interface explorations, and technical toolkit.",
   openGraph: {
-    title: "LoisDub — Full Stack Engineer",
+    title: "LoisDub — developer",
     description:
       "Thoughtful code. Meaningful experiences. A portfolio of development and interface explorations.",
     type: "website",

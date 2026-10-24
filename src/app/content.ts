@@ -5,95 +5,158 @@ export const profile = {
   github: "https://github.com/LoisDub",
 };
 
+export type ProjectMedia = {
+  type: "video" | "image";
+  src: string;
+  alt: string;
+};
+
 export type Project = {
   id: string;
   number: string;
   title: string;
-  category: "Web development" | "Interface concepts";
+  category: "Web development" | "Desktop applications";
   label: string;
   description: string;
   tags: string[];
-  preview: "portfolio" | "workspace" | "commerce";
+  media: ProjectMedia[];
   overview: string;
   details: { title: string; description: string }[];
-  repo?: string;
+  repo: string;
 };
 
 export const projects: Project[] = [
   {
-    id: "portfolio",
+    id: "music-converter",
     number: "01",
-    title: "A space for my work",
+    title: "Music Converter",
     category: "Web development",
-    label: "PERSONAL WEBSITE",
+    label: "MEDIA MANAGEMENT WEB APP",
     description:
-      "A considered portfolio bringing code, craft, and a little personality together.",
-    tags: ["Next.js", "TypeScript", "CSS"],
-    preview: "portfolio",
-    overview:
-      "The website you’re exploring: a responsive portfolio built to make my engineering focus, work, and contact information easy to find.",
-    details: [
+      "A PHP-based music converter web application featuring user authentication, file upload and organization, and dashboard functionality for managing media content.",
+    tags: ["PHP", "Authentication", "File uploads", "Dashboard"],
+    media: [
       {
-        title: "The approach",
-        description:
-          "An editorial layout, warm neutrals, and a focused green palette give the content room to breathe. Reusable components keep the presentation consistent.",
-      },
-      {
-        title: "The implementation",
-        description:
-          "Built with Next.js and TypeScript, with responsive CSS, native project dialogs, keyboard-friendly navigation, and reduced-motion support.",
+        type: "video",
+        src: "/projects/Music_Converter/Recording%202026-10-22%20104414.mp4",
+        alt: "Music Converter application walkthrough",
       },
     ],
-    repo: "https://github.com/LoisDub/my-portfolio",
+    overview:
+      "A PHP-based music converter web application featuring user authentication, file upload and organization, and dashboard functionality for managing media content.",
+    details: [
+      {
+        title: "Media management",
+        description:
+          "Upload and organize files, then manage media content from a dedicated dashboard.",
+      },
+      {
+        title: "User accounts",
+        description:
+          "User authentication supports an account-based experience for accessing the application and its media management tools.",
+      },
+    ],
+    repo: "https://github.com/LoisDub/FinalProjectWithEarl",
   },
   {
-    id: "workspace",
+    id: "pakamew",
     number: "02",
-    title: "Room to focus",
-    category: "Interface concepts",
-    label: "DASHBOARD CONCEPT",
+    title: "Pakamew / Stray Feeder",
+    category: "Web development",
+    label: "SHELTER SUPPORT PLATFORM",
     description:
-      "An exploration of a calmer, more organized home for everyday project work.",
-    tags: ["Interface design", "Dashboard", "Concept"],
-    preview: "workspace",
-    overview:
-      "An illustrative interface concept for a project workspace. This is a design exploration, rather than a shipped product or a client engagement.",
-    details: [
+      "Full-stack shelter support platform with a React + TanStack Router web app, Node.js + Hono backend, typed APIs, Better Auth security, Prisma/PostgreSQL persistence, observability tooling, and livestream device integration.",
+    tags: ["React", "TanStack Router", "Node.js", "Hono", "Prisma", "PostgreSQL"],
+    media: [
       {
-        title: "The idea",
-        description:
-          "Bring tasks, project progress, and daily priorities into one quiet interface. A clear hierarchy helps separate what needs attention from supporting information.",
+        type: "image",
+        src: "/projects/Pakamew/pakamew-demo-third-pov-320px-12fps.gif",
+        alt: "Pakamew stray feeder demo from a third-person view",
       },
       {
-        title: "Design direction",
-        description:
-          "A compact sidebar, soft lilac accents, and small progress indicators explore how a useful dashboard can feel approachable without losing density.",
+        type: "image",
+        src: "/projects/Pakamew/pakamew-demo-first-pov-320px-12fps.gif",
+        alt: "Pakamew stray feeder demo from a first-person view",
       },
     ],
+    overview:
+      "Full-stack shelter support platform with a React + TanStack Router web app, Node.js + Hono backend, typed APIs, Better Auth security, Prisma/PostgreSQL persistence, observability tooling, and livestream device integration.",
+    details: [
+      {
+        title: "Connected application",
+        description:
+          "A React interface with TanStack Router connects to a Node.js and Hono backend through typed APIs. Better Auth handles authentication, while Prisma and PostgreSQL provide persistence.",
+      },
+      {
+        title: "Device integration",
+        description:
+          "Livestream device integration connects the platform to the stray feeder, with observability tooling supporting visibility into the system.",
+      },
+    ],
+    repo: "https://github.com/mmsu-pawpatrol/pakamew",
   },
   {
-    id: "commerce",
+    id: "weather-app",
     number: "03",
-    title: "Everyday, considered",
-    category: "Interface concepts",
-    label: "STOREFRONT CONCEPT",
+    title: "Weather App",
+    category: "Desktop applications",
+    label: "DESKTOP WEATHER APP",
     description:
-      "A minimal storefront study that puts the product and its story first.",
-    tags: ["Interface design", "E-commerce", "Concept"],
-    preview: "commerce",
-    overview:
-      "An illustrative storefront direction for thoughtfully designed everyday objects. This is a visual study, rather than an operational shop or a client project.",
-    details: [
+      "A Java desktop weather app that shows current conditions and a 5-day forecast using live API data, with a clean UI, interactive map markers, and reusable component-based architecture.",
+    tags: ["Java", "Live API data", "Interactive maps", "Desktop"],
+    media: [
       {
-        title: "The idea",
-        description:
-          "Create an unhurried shopping experience with generous whitespace, a strong product silhouette, and clear editorial typography.",
-      },
-      {
-        title: "Design direction",
-        description:
-          "A warm clay palette and a simple lamp illustration establish the visual language. The preview explores composition and presentation; it does not provide checkout functionality.",
+        type: "image",
+        src: "/projects/weather_app/weatherforecast-animation.gif",
+        alt: "Weather App demo showing weather conditions and forecasts",
       },
     ],
+    overview:
+      "A Java desktop weather app that shows current conditions and a 5-day forecast using live API data, with a clean UI, interactive map markers, and reusable component-based architecture.",
+    details: [
+      {
+        title: "Weather at a glance",
+        description:
+          "Live API data powers current conditions and a five-day forecast, with interactive map markers for exploring locations.",
+      },
+      {
+        title: "Reusable architecture",
+        description:
+          "A component-based Java desktop interface keeps the weather presentation organized and its UI components reusable.",
+      },
+    ],
+    repo: "https://github.com/daawaan4x/weather-app",
+  },
+  {
+    id: "pokemon-almanac",
+    number: "04",
+    title: "Pokémon Almanac",
+    category: "Web development",
+    label: "POKÉMON EXPLORER",
+    description:
+      "A simple Pokémon almanac built with HTML, CSS, and JavaScript where users can search by type and explore Pokémon details quickly.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    media: [
+      {
+        type: "image",
+        src: "/projects/pokemon_almanac/giphy.gif",
+        alt: "Pokémon Almanac demo showing Pokémon browsing and details",
+      },
+    ],
+    overview:
+      "A simple Pokémon almanac built with HTML, CSS, and JavaScript where users can search by type and explore Pokémon details quickly.",
+    details: [
+      {
+        title: "Explore by type",
+        description:
+          "Search Pokémon by type and quickly explore their details through a straightforward browsing interface.",
+      },
+      {
+        title: "Built for the browser",
+        description:
+          "HTML, CSS, and JavaScript provide the structure, styling, and interactions for the almanac.",
+      },
+    ],
+    repo: "https://github.com/LoisDub/Pokemon_almanac",
   },
 ];
